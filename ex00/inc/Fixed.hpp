@@ -6,21 +6,27 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:09:43 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/20 15:39:28 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/21 13:03:09 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 class Fixed {
     private:
-        int                 fp_val;
-        static const int    bits = 8;
+        int                 _fp_val;
+        static const int    _bits = 8;
 
     public:
-        Fixed ( void );
+        Fixed ();
         Fixed ( const Fixed& );
         Fixed&  operator= ( const Fixed& );
-        int getRawBits( void ) const;
-        int setRawBits( int const );
+        int getRawBits() const;
+        void setRawBits( int const );
 
-        ~Fixed ( void );
+        ~Fixed ();
+
 };
+
+#endif

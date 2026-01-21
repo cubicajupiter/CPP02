@@ -6,22 +6,22 @@
 #    By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 12:06:00 by jvalkama          #+#    #+#              #
-#    Updated: 2026/01/20 13:49:27 by jvalkama         ###   ########.fr        #
+#    Updated: 2026/01/21 09:39:36 by jvalkama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:=
+NAME			:=fixed
 
 SRCDIR			:=src
 VPATH			:=$(SRCDIR)
-SRCS			:=main.cpp
+SRCS			:=main.cpp Fixed.cpp
 
 OBJDIR			:=obj
 OBJS			:=$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
 INC				:=inc
 INCLUDES		:=-I $(INC)
-HEADER			:=$(INC)/___.hpp
+HEADER			:=$(INC)/Fixed.hpp
 
 COMPILER		:=c++
 CXXFLAGS		:=-Wall -Wextra -Werror -O3 -march=native -std=c++17
