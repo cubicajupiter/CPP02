@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 09:23:31 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/21 18:06:56 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:58:01 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,35 @@
 #include <cmath>
 
 //DEFAULT CONSTRUCTOR
-Fixed::Fixed(void) : _fp_val(0), _bits(8) {
+Fixed::Fixed(void) : _fp_val(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
 //COPY CONSTRUCTOR
-Fixed::Fixed(const Fixed& other) : _fp_val(other._fp_val), _bits(8) {
+Fixed::Fixed(const Fixed& other) : _fp_val(other._fp_val) {
     std::cout << "Copy constructor called" << std::endl;
 }
 
-//CONSTRUCTOR INT
-Fixed::Fixed(const int n) : _bits(8) {
-    this->_fp_val = ; //TODO
-    ;
+//CONSTRUCTOR INT TO FP
+Fixed::Fixed(const int n) {
+    std::cout << "Int constructor called" << std::endl;
+    this->_fp_val = n << this->_bits;
 }
 
-//CONSTRUCTOR FLOAT
-Fixed::Fixed(const float f) : _bits(8) {
-    this->_fp_val = ; //TODO
+//CONSTRUCTOR FLOAT TO FP
+Fixed::Fixed(const float f) {
+    std::cout << "Float constructor called" << std::endl;
+    this->_fp_val = static_cast<int>(std::roundf(f * (1 << this->_bits)));
 }
 
 //CONVERT FIXED-POINT TO FLOAT
 float   Fixed::toFloat(void) const {
-    ; //TODO
+    return static_cast<float>(this->_fp_val) / (1 << this->_bits);
 }
 
 //CONVERT FIXED-POINT TO INT
 int Fixed::toInt(void) const {
-    //std::roundf(); returns a float representation of nearest integer to given float parameter.
-    //TODO: WHY NOT JUST DIVIDE TO GET THE FLOAT?
+    return this->_fp_val >> this->_bits;
 }
 
 //COPY ASSIGNMENT OPERATOR
@@ -62,7 +62,6 @@ Fixed::~Fixed(void) {
 
 //GETTER
 int Fixed::getRawBits(void) const {
-    std::cout << "getRawBits member function called" << std::endl;
     return this->_fp_val;
 }
 
@@ -76,6 +75,6 @@ void    Fixed::setRawBits(int const raw) {
 //STANDALONE
 //INSERTION OPERATOR OVERLOAD
 std::ostream&   operator<<(std::ostream& os, const Fixed& fp) {
-    os << fp.getRawBits();
+    os << fp.toFloat();
     return os;
 }

@@ -6,12 +6,35 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:27:00 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/21 15:45:20 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/22 16:39:37 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+
+int main( void )
+{
+
+    Fixed       a;
+    Fixed const b( 10 );
+    Fixed const c( 42.42f );
+    Fixed const d( b );
+
+    a = Fixed( 1234.4321f );
+
+    std::cout << "a is " << a << std::endl;
+    std::cout << "b is " << b << std::endl;
+    std::cout << "c is " << c << std::endl;
+    std::cout << "d is " << d << std::endl;
+    
+    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+    return 0;
+}
 
 /*Since norm no longer applies, lemme write a tiny essay on fixed point values right here.
 Fixed pointer values are floats stored as integers. I.e. they are integral ('kokonais') data types - same as ints or chars.
@@ -47,17 +70,3 @@ The precision and range is determined by how many bits are shifted to the fracti
 Also, modern processors usually come with dedicated floating point processors that are optimized for powerful
 float arithmetics, which fixed-point cannot use. Hence floats tend to be faster than fp nowadays on modern systems.
 */
-
-int main(void) {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-
-    c = b;
-
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-
-    return 0;
-}
