@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 09:23:31 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/22 17:42:40 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/22 19:01:34 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Fixed::Fixed(void) : _fp_val(0) {
 }
 
 //COPY CONSTRUCTOR
-Fixed::Fixed(const Fixed& other) : _fp_val(other.getRawBits()) {
+Fixed::Fixed(const Fixed& other) : _fp_val(other._fp_val) {
     std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -55,6 +55,73 @@ Fixed&   Fixed::operator=(const Fixed& other) {
     return *this;
 }
 
+//COMPARISON OPERATORS
+bool   Fixed::operator>(const Fixed& other) const {
+    return this->_fp_val > other.getRawBits();
+}
+
+bool   Fixed::operator<(const Fixed& other) const {
+    return this->_fp_val < other.getRawBits();
+}
+
+bool   Fixed::operator>=(const Fixed& other) const {
+    return this->_fp_val >= other.getRawBits();
+}
+
+bool   Fixed::operator<=(const Fixed& other) const {
+    return this->_fp_val <= other.getRawBits();
+}
+
+bool   Fixed::operator==(const Fixed& other) const {
+    return this->_fp_val == other.getRawBits();
+}
+
+bool   Fixed::operator!=(const Fixed& other) const {
+    return this->_fp_val != other.getRawBits();
+}
+
+//ARITHMETIC OPERATORS
+int Fixed::operator+ ( const Fixed& other ) const {
+    return this->_fp_val + other.getRawBits();
+}
+
+int Fixed::operator- ( const Fixed& other ) const {
+    return this->_fp_val - other.getRawBits();
+}
+
+int Fixed::operator* ( const Fixed& other ) const {
+    return this->_fp_val * other.getRawBits();
+}
+
+int Fixed::operator/ ( const Fixed& other ) const {
+    return this->_fp_val / other.getRawBits();
+}
+
+//INCREMENT/DECREMENT OPERATORS
+Fixed   Fixed::operator++ ( int ) {
+    Fixed   temp = *this;
+
+    ++(this->_fp_val);
+    return temp;
+}
+
+Fixed&  Fixed::operator++ ( void ) {
+    ++(this->_fp_val);
+    return *this;
+}
+
+Fixed   Fixed::operator-- ( int ) {
+    Fixed   temp = *this;
+
+    --(this->_fp_val);
+    return temp;
+}
+
+Fixed&  Fixed::operator-- ( void ) {
+    --(this->_fp_val);
+    return *this;
+}
+
 //DESTRUCTOR
 Fixed::~Fixed(void) {
     std::cout << "Destructor called" << std::endl;
@@ -71,6 +138,24 @@ void    Fixed::setRawBits(int const raw) {
     this->_fp_val = raw;
 }
 
+Fixed&   Fixed::min( Fixed& a, Fixed& b ) {
+    Fixed   min;
+
+    
+    return ;
+}
+
+Fixed&   Fixed::min( const Fixed& a, const Fixed& b ) {
+    ;
+}
+
+Fixed&   Fixed::max( Fixed& a, Fixed& b ) {
+    ;
+}
+
+Fixed&   Fixed::max( const Fixed& a, const Fixed& b ) {
+    ;
+}
 
 //STANDALONE
 //INSERTION OPERATOR OVERLOAD
