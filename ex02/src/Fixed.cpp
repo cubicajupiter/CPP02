@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 09:23:31 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/22 19:01:34 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:54:00 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ float   Fixed::toFloat(void) const {
 
 //CONVERT FIXED-POINT TO INT
 int Fixed::toInt(void) const {
+    std::cout << "to float" << std::endl;
     return this->_fp_val >> this->_bits;
 }
 
@@ -81,20 +82,32 @@ bool   Fixed::operator!=(const Fixed& other) const {
 }
 
 //ARITHMETIC OPERATORS
-int Fixed::operator+ ( const Fixed& other ) const {
-    return this->_fp_val + other.getRawBits();
+Fixed   Fixed::operator+ ( const Fixed& other ) const {
+    Fixed   result;
+
+    result.setRawBits(this->_fp_val + other.getRawBits());
+    return result;
 }
 
-int Fixed::operator- ( const Fixed& other ) const {
-    return this->_fp_val - other.getRawBits();
+Fixed   Fixed::operator- ( const Fixed& other ) const {
+    Fixed   result;
+
+    result.setRawBits(this->_fp_val - other.getRawBits());
+    return result;
 }
 
-int Fixed::operator* ( const Fixed& other ) const {
-    return this->_fp_val * other.getRawBits();
+Fixed   Fixed::operator* ( const Fixed& other ) const {
+    Fixed   result;
+
+    result.setRawBits((this->_fp_val * other.getRawBits()) >> this->_bits);
+    return result;
 }
 
-int Fixed::operator/ ( const Fixed& other ) const {
-    return this->_fp_val / other.getRawBits();
+Fixed   Fixed::operator/ ( const Fixed& other ) const {
+    Fixed   result;
+
+    result.setRawBits((this->_fp_val << this->_bits) / other.getRawBits());
+    return result;
 }
 
 //INCREMENT/DECREMENT OPERATORS
@@ -139,22 +152,27 @@ void    Fixed::setRawBits(int const raw) {
 }
 
 Fixed&   Fixed::min( Fixed& a, Fixed& b ) {
-    Fixed   min;
-
-    
-    return ;
+    if (a <= b)
+        return a;
+    return b;
 }
 
-Fixed&   Fixed::min( const Fixed& a, const Fixed& b ) {
-    ;
+const Fixed&   Fixed::min( const Fixed& a, const Fixed& b ) {
+    if (a <= b)
+        return a;
+    return b;
 }
 
 Fixed&   Fixed::max( Fixed& a, Fixed& b ) {
-    ;
+    if (a >= b)
+        return a; 
+    return b;
 }
 
-Fixed&   Fixed::max( const Fixed& a, const Fixed& b ) {
-    ;
+const Fixed&   Fixed::max( const Fixed& a, const Fixed& b ) {
+    if (a >= b)
+        return a;
+    return b;
 }
 
 //STANDALONE

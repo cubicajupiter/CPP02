@@ -6,11 +6,11 @@
 #    By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 12:06:00 by jvalkama          #+#    #+#              #
-#    Updated: 2026/01/20 13:49:27 by jvalkama         ###   ########.fr        #
+#    Updated: 2026/01/23 16:53:43 by jvalkama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:=
+NAME			:=BSP
 
 SRCDIR			:=src
 VPATH			:=$(SRCDIR)

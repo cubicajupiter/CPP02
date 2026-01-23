@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:09:43 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/22 18:38:26 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:55:35 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Fixed {
     private:
-        int                 _fp_val;
+        long long           _fp_val;
         static const int    _bits = 8;
 
     public:
@@ -25,6 +25,11 @@ class Fixed {
         Fixed ( const Fixed& );
         Fixed ( const int );
         Fixed ( const float );
+
+        int     getRawBits ( void ) const;
+        void    setRawBits ( int const );
+        float   toFloat ( void ) const;
+        int     toInt ( void ) const;
 
         Fixed&  operator= ( const Fixed& );
         bool    operator> ( const Fixed& ) const;
@@ -34,25 +39,20 @@ class Fixed {
         bool    operator== ( const Fixed& ) const;
         bool    operator!= ( const Fixed& ) const;
 
-        int     operator+ ( const Fixed& ) const;
-        int     operator- ( const Fixed& ) const;
-        int     operator* ( const Fixed& ) const;
-        int     operator/ ( const Fixed& ) const;
+        Fixed   operator+ ( const Fixed& ) const;
+        Fixed   operator- ( const Fixed& ) const;
+        Fixed   operator* ( const Fixed& ) const;
+        Fixed   operator/ ( const Fixed& ) const;
 
         Fixed   operator++ ( int );
         Fixed&  operator++ ( void );
         Fixed   operator-- ( int );
         Fixed&  operator-- ( void );
 
-        int     getRawBits ( void ) const;
-        void    setRawBits ( int const );
-        float   toFloat ( void ) const;
-        int     toInt ( void ) const;
-
-        static Fixed&   min ( Fixed&, Fixed& );
-        static Fixed&   min ( const Fixed&, const Fixed& );
-        static Fixed&   max ( Fixed&, Fixed& );
-        static Fixed&   max ( const Fixed&, const Fixed& );
+        static Fixed&       min ( Fixed&, Fixed& );
+        static const Fixed& min ( const Fixed&, const Fixed& );
+        static Fixed&       max ( Fixed&, Fixed& );
+        static const Fixed& max ( const Fixed&, const Fixed& );
 
         ~Fixed ( void );
 };

@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:27:00 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/22 17:41:28 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:55:40 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int main( void ) {
 
     return 0;
 }
+
+
 
 /*Since norm no longer applies, lemme write a tiny essay on fixed point values right here.
 Fixed pointer values are floats stored as integers. I.e. they are integral ('kokonais') data types - same as ints or chars.

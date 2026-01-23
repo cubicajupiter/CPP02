@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:09:43 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/22 16:33:20 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:10:02 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Fixed {
     private:
-        int                 _fp_val;
+        long long           _fp_val;
         static const int    _bits = 8;
 
     public:
