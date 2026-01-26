@@ -6,7 +6,7 @@
 #    By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 12:06:00 by jvalkama          #+#    #+#              #
-#    Updated: 2026/01/23 16:53:43 by jvalkama         ###   ########.fr        #
+#    Updated: 2026/01/26 16:43:26 by jvalkama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ NAME			:=BSP
 
 SRCDIR			:=src
 VPATH			:=$(SRCDIR)
-SRCS			:=main.cpp
+SRCS			:=main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJDIR			:=obj
 OBJS			:=$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
 INC				:=inc
 INCLUDES		:=-I $(INC)
-HEADER			:=$(INC)/___.hpp
+HEADER			:=$(INC)/Fixed.hpp $(INC)/Point.hpp
 
 COMPILER		:=c++
 CXXFLAGS		:=-Wall -Wextra -Werror -O3 -march=native -std=c++17

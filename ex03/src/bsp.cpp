@@ -6,15 +6,11 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:56:48 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/23 16:54:04 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:43:08 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
-
-#define A   0
-#define B   1
-#define C   2
 
 static bool    is_inside( const Point triangle[], const Point p );
 
@@ -26,11 +22,26 @@ bool    bsp( Point const a, Point const b, Point const c, Point const point ) {
     else return false;
 }
 
-static bool    is_inside( const Point triangle[], const Point p ) {
-    ;
+static bool    is_inside( const Point tri[], const Point p ) {
+    Fixed   denom = (tri[B].getY() - tri[C].getY()) * (tri[A].getX() - tri[C].getX()) + (tri[C].getX() - tri[B].getX()) * (tri[A].getY() - tri[C].getY());
+    Fixed   a = ((tri[B].getY() - tri[C].getY()) * (p.getX() - tri[C].getX()) + (tri[C].getX() - tri[B].getX()) * (p.getY() - tri[C].getY())) / denom;
+    Fixed   b = ((tri[C].getY() - tri[A].getY()) * (p.getX() - tri[C].getX()) + (tri[A].getX() - tri[C].getX()) * (p.getY() - tri[C].getY())) / denom;
+    Fixed   c = Fixed(1.0f) - a - b;
+
+    return (a > 0) && (b > 0) && (c > 0);
 }
 
-//standard      Ax + By + C = 0     formula
+//You can use the BARYCENTRIC COORDINATE METHOD
+//  Parameters: Three vertices of the triangle p1, p2, and p3 and the point P to locate.
+//  Output: Boolean TRUE if the point is inside, and false if it's outside or on the boundary.
+//the Barycentric coordinate method uses the general form line equation Ax + By + C
+//the edges of the triangle are expressed using the general form line equation.
+// If the point is on the same side (has the same sign) as all three edges, it's inside.
+//barycentric weights are proportional to the signed distances from the point to each edge.
+
+//Equivalent to the half-plane method or cross-product orientation test.
+
+//standard      Ax + By + C = 0     formula (THE GENERAL FORM LINE EQUATION)
     //p = (x, y)
     //Ax + By + C
 

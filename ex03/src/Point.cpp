@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:56:52 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/23 16:54:01 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:43:19 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,18 @@ Point::Point(const float x, const float y) : _x(x), _y(y) {}
 
 Point::Point(const Point& other) : _x(other._x), _y(other._y) {}
 
-
+// COPY ASSIGNMENT OPERATOR OVERLOAD
 Point&  Point::operator=(Point& p) {
-    if (this != &p) {
-        this->_x = p.getX(); //WHY IS THERE NO = OPERATOR FOR FIXED CLASS, even though one was made
-        this->_y = p.getY();
-    }
-    return *this;
+    (void) p;
+    return p;
 }
 
-const Fixed  Point::getX(void) {
+const Fixed  Point::getX(void) const {
     return this->_x;
 }
 
 
-const Fixed  Point::getY(void) {
+const Fixed  Point::getY(void) const {
     return this->_y;
 }
 
