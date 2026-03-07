@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:27:00 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/23 14:55:40 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/03/07 10:11:49 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,24 @@ int main( void ) {
 
     std::cout << Fixed::max( a, b ) << std::endl;
 
+    Fixed c(10);
+    Fixed d(20);
+    std::cout << "c: " << c << " | d: " << d << std::endl;
+    std::cout << "c < d:  " << (c < d)  << " (expected 1)" << std::endl;
+    std::cout << "c > d:  " << (c > d)  << " (expected 0)" << std::endl;
+    std::cout << "c == c: " << (c == c) << " (expected 1)" << std::endl;
+    std::cout << "c != d: " << (c != d) << " (expected 1)" << std::endl;
+
+    std::cout << "b is " << b << " (expected ~10.1)" << std::endl;
+    std::cout << "c + d: " << (c + d) << " (expected 30)" << std::endl;
+    std::cout << "d - c: " << (d - c) << " (expected 10)" << std::endl;
+    std::cout << "c * 2: " << (c * Fixed(2)) << " (expected 20)" << std::endl;
+    std::cout << "d / 2: " << (d / Fixed(2)) << " (expected 10)" << std::endl;
+
+    Fixed const e(42.42f);
+    Fixed const f(100);
+    std::cout << "Min of (e, f): " << Fixed::min( e, f ) << std::endl;
+	
     return 0;
 }
 

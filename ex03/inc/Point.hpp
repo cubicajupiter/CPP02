@@ -6,13 +6,14 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:56:37 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/26 15:21:37 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/03/07 12:28:39 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Fixed.hpp"
+#include <memory>
 
 //INDEXES FOR VERTICES OF A TRIANGLE
 #define A   0
@@ -33,7 +34,7 @@ class Point {
         const Fixed  getX (void) const;
         const Fixed  getY (void) const;
 
-        Point&  operator= ( Point& );
+        Point&  operator= ( const Point& );
 
         ~Point ();
 };

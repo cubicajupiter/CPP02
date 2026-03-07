@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:27:00 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/22 16:39:37 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/03/07 10:12:00 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int main( void )
 {
-
     Fixed       a;
     Fixed const b( 10 );
     Fixed const c( 42.42f );
@@ -33,6 +32,11 @@ int main( void )
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
+	Fixed e;
+    e.setRawBits(512);
+    std::cout << "e raw bits: " << e.getRawBits() << std::endl;
+    std::cout << "e value: " << e << std::endl;
+	
     return 0;
 }
 
