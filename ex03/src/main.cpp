@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 14:59:01 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/03/07 12:43:02 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/03/08 12:11:25 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,39 +25,45 @@ int main(void) {
 
     std::cout << bsp(a, b, c, p1) << std::endl;
     std::cout << bsp(a, b, c, p2) << std::endl;
+	std::cout << std::endl;
 
 	
-    Point const a(0, 0);
-    Point const b(10, 0);
-    Point const c(0, 10);
+    Point const vA(0, 0);
+    Point const vB(10, 0);
+    Point const vC(0, 10);
 
-	std::cout << "Point inside" << std::endl;
-    print_location(bsp(a, b, c, Point(2, 2)));
+	std::cout << "ADDITONAL TESTS:" << std::endl;	
+	std::cout << "Point inside?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(2, 2)));
+	std::cout << std::endl;
 
-	std::cout << "Point outside" << std::endl;
-    print_location(bsp(a, b, c, Point(15, 15)));
-	std::cout << "Negative Point outside" << std::endl;
-    print_location(bsp(a, b, c, Point(-1, -1)));
+	std::cout << "Point outside?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(15, 15)));
+	std::cout << "Negative Point outside?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(-1, -1)));
+	std::cout << std::endl;
 
-	std::cout << "Edge point (on hypotenuse BC)" << std::endl;
-    print_location(bsp(a, b, c, Point(5, 5)));
-	std::cout << "Edge point (on AC)" << std::endl;
-    print_location(bsp(a, b, c, Point(0, 5)));
+	std::cout << "Edge point (on hypotenuse BC)?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(5, 5)));
+	std::cout << "Edge point (on AC)?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(0, 5)));
+	std::cout << std::endl;
 
-	std::cout << "Point exactly on vertex A" << std::endl;
-    print_location(bsp(a, b, c, Point(0, 0)));
-	std::cout << "Point exactly on vertex B" << std::endl;
-    print_location(bsp(a, b, c, Point(10, 0)));
+	std::cout << "Point exactly on vertex A?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(0, 0)));
+	std::cout << "Point exactly on vertex B?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(10, 0)));
+	std::cout << std::endl;
 
-	std::cout << "Point barely inside:" << std::endl;
-    print_location(bsp(a, b, c, Point(0.1f, 0.1f)));
+	std::cout << "Point barely inside?" << std::endl;
+    print_location(bsp(vA, vB, vC, Point(0.1f, 0.1f)));
 
     return 0;
 }
 
 static inline void	print_location(bool is_inside) {
 	if (is_inside)
-		std::cout << "Inside!" << std::endl;
+		std::cout << "Inside" << std::endl;
 	else
-		std::cout << "Outside!" << std::endl;
+		std::cout << "Outside" << std::endl;
 }

@@ -6,11 +6,11 @@
 #    By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 12:06:00 by jvalkama          #+#    #+#              #
-#    Updated: 2026/01/22 16:39:08 by jvalkama         ###   ########.fr        #
+#    Updated: 2026/03/08 12:13:26 by jvalkama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:=fixeded
+NAME			:=fixed
 
 SRCDIR			:=src
 VPATH			:=$(SRCDIR)

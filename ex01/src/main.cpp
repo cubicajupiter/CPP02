@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:27:00 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/03/07 10:12:00 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/03/08 11:34:29 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 
 int main( void )
 {
-    Fixed       a;
-    Fixed const b( 10 );
-    Fixed const c( 42.42f );
-    Fixed const d( b );
+    Fixed       	a;
+    Fixed const 	b( 10 );
+    Fixed const 	c( 42.42f );
+    Fixed const 	d( b );
 
     a = Fixed( 1234.4321f );
 
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
+    std::cout << "A is " << a << std::endl;
+    std::cout << "B is " << b << std::endl;
+    std::cout << "C is " << c << std::endl;
+    std::cout << "D is " << d << std::endl;
     
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    std::cout << "A is " << a.toInt() << " as integer" << std::endl;
+    std::cout << "B is " << b.toInt() << " as integer" << std::endl;
+    std::cout << "C is " << c.toInt() << " as integer" << std::endl;
+    std::cout << "D is " << d.toInt() << " as integer" << std::endl;
 
-	Fixed e;
+	Fixed	e;
     e.setRawBits(512);
-    std::cout << "e raw bits: " << e.getRawBits() << std::endl;
-    std::cout << "e value: " << e << std::endl;
+    std::cout << "E raw bits: " << e.getRawBits() << std::endl;
+    std::cout << "E value: " << e << std::endl;
 	
     return 0;
 }
 
 /*Since norm no longer applies, lemme write a tiny essay on fixed point values right here.
-Fixed pointer values are floats stored as integers. I.e. they are integral ('kokonais') data types - same as ints or chars.
+Fixed point values are floats stored as integers. I.e. they are integral ('kokonais') data types - same as ints or chars.
 Being integral and fractional, fixed point values offer fractional precision like a float, but faster performance closer to int.
 They are calculated by using a binary point (like a decimal point) that splits the integer's
 "whole" part and "fractional" part around some fixed point in the integer's binary representation.

@@ -6,7 +6,7 @@
 /*   By: jvalkama <jvalkama@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 09:23:31 by jvalkama          #+#    #+#             */
-/*   Updated: 2026/01/23 14:55:39 by jvalkama         ###   ########.fr       */
+/*   Updated: 2026/03/08 12:10:13 by jvalkama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 
 //DEFAULT CONSTRUCTOR
 Fixed::Fixed(void) : _fp_val(0) {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 //COPY CONSTRUCTOR
 Fixed::Fixed(const Fixed& other) : _fp_val(other._fp_val) {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
 }
 
 //CONSTRUCTOR INT TO FP
 Fixed::Fixed(const int n) {
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
     this->_fp_val = n << this->_bits;
 }
 
 //CONSTRUCTOR FLOAT TO FP
 Fixed::Fixed(const float f) {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     this->_fp_val = static_cast<int>(std::roundf(f * (1 << this->_bits)));
 }
 
@@ -43,13 +43,13 @@ float   Fixed::toFloat(void) const {
 
 //CONVERT FIXED-POINT TO INT
 int Fixed::toInt(void) const {
-    std::cout << "to float" << std::endl;
+    //std::cout << "to float" << std::endl;
     return this->_fp_val >> this->_bits;
 }
 
 //COPY ASSIGNMENT OPERATOR
 Fixed&   Fixed::operator=(const Fixed& other) {
-    std::cout << "Copy assignment operator called" << std::endl;
+    //std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other) {
         this->_fp_val = other.getRawBits();
     }
@@ -137,7 +137,7 @@ Fixed&  Fixed::operator-- ( void ) {
 
 //DESTRUCTOR
 Fixed::~Fixed(void) {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 //GETTER
@@ -147,7 +147,7 @@ int Fixed::getRawBits(void) const {
 
 //SETTER
 void    Fixed::setRawBits(int const raw) {
-    std::cout << "setRawBits member function called" << std::endl;
+    //std::cout << "setRawBits member function called" << std::endl;
     this->_fp_val = raw;
 }
 
